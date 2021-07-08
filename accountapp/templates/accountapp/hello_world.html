@@ -7,10 +7,12 @@
 
         <form action="/accounts2/hello_world2/" method="post">
             {% csrf_token %}
+
+            <input type="text" name="input">
             <input type="submit" class="btn btn-primary rounded-pill px-5">
         </form>
 
-        <h3>{{ text }}</h3>
+        <h3>{{ new_data.text }}</h3>
     </div>
 
 
