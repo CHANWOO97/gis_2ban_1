@@ -20,8 +20,6 @@ def hello_world(request):
         new_data.text = temp
         new_data.save()
 
-
-
         return HttpResponseRedirect(reverse('accountapp:hello_world')) # 해당하는 경로를 다시 만들어주는 함수 reverse()
 
     else:
@@ -29,8 +27,9 @@ def hello_world(request):
         return render(request, 'accountapp/hello_world.html',
                       context={'data_list': data_list})
 
+
 class AccountCreateView(CreateView):
     model = User
     form_class = UserCreationForm
-    success_url = reverse_lazy('accoutapp:hello_world') # 클래스에서 경로를 다시만들어주는 함수를 reverse_lazy()
+    success_url = reverse_lazy('accountapp:hello_world') # 클래스에서 경로를 다시만들어주는 함수를 reverse_lazy()
     template_name = 'accountapp/create.html'  # 어느 html file을 이용할지
